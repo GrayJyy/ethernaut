@@ -1,7 +1,7 @@
-import { ethers } from 'hardhat';
-import type { Contract, Signer } from 'ethers';
-import { createChallenge, submitLevel } from '../utils/utils';
-import { expect } from 'chai';
+import { ethers } from 'hardhat'
+import type { Contract, Signer } from 'ethers'
+import { createChallenge, submitLevel } from '../utils/utils'
+import { expect } from 'chai'
 
 const abi = [
   {
@@ -98,20 +98,19 @@ const abi = [
     constant: true,
     signature: '0xf157a1e3',
   },
-];
+]
 describe('HelloEthernaut', () => {
-  let accounts: Signer[];
-  let eoa: Signer;
-  let challenge: Contract;
+  let accounts: Signer[]
+  let eoa: Signer
+  let challenge: Contract
   beforeEach(async () => {
-    accounts = await ethers.getSigners();
+    accounts = await ethers.getSigners()
     // console.log(accounts);
-
-    [eoa] = accounts;
-    const challengeAddress = await createChallenge('0x7E0f53981657345B31C59aC44e9c21631Ce710c7'); // add the level
-    challenge = await ethers.getContractAt(abi, challengeAddress);
-  });
-  it('solves the challenge', async function () {
+    ;[eoa] = accounts
+    const challengeAddress = await createChallenge('0x7E0f53981657345B31C59aC44e9c21631Ce710c7') // add the level
+    challenge = await ethers.getContractAt(abi, challengeAddress)
+  })
+  it('solves the hello ethernaut challenge', async function () {
     const infos = await Promise.all([
       challenge.info(),
       challenge.info1(),
@@ -120,19 +119,19 @@ describe('HelloEthernaut', () => {
       challenge.info42(),
       challenge.theMethodName(),
       challenge.method7123949(),
-    ]);
-    console.log(infos.join(`\n`));
+    ])
+    console.log(infos.join(`\n`))
 
-    const password = await challenge.password();
-    console.log(`password = ${password}`);
+    const password = await challenge.password()
+    console.log(`password = ${password}`)
     // can we somehow get it from constructor arguments? seems to accept a _password
     // const deploymentTx = await eoa.provider!.getTransaction(`0x047c8f63435250a79ede096557b94de95a4c5f282f0c041951b42a2d70bcd149`)
     // console.log(`Tx data:`, deploymentTx.data, Buffer.from(deploymentTx.data, `hex`).toString(`utf8`))
 
-    const tx = await challenge.authenticate(password);
-    await tx.wait();
-  });
+    const tx = await challenge.authenticate(password)
+    await tx.wait()
+  })
   after(async () => {
-    expect(await submitLevel(challenge.address), 'level not solved').to.be.true;
-  });
-});
+    expect(await submitLevel(challenge.address), 'level not solved').to.be.true
+  })
+})
