@@ -54,4 +54,4 @@ pnpm hardhat test --network sepolia
 ---
 
 1. [HelloEthernaut](https://github.com/GrayJyy/ethernaut/blob/main/test/01-HelloEthernaut-test.ts)
-2. [Fallback](
+2. [Fallback](https://github.com/GrayJyy/ethernaut/blob/main/test/02-Fallback-test.ts)

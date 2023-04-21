@@ -1,6 +1,6 @@
 ![fighting~](https://images.pexels.com/photos/879109/pexels-photo-879109.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2 'code')
 
-🌐 [**English Version**](https://github.com/GrayJyy/ethernaut) 🌐
+🌐 [**English Version**](https://github.com/GrayJyy/ethernaut/blob/main/Languages/en/README.md) 🌐
 
 # Gray's ethernaut solution
 
@@ -54,4 +54,4 @@ pnpm hardhat test --network sepolia
 ---
 
 1. [HelloEthernaut](https://github.com/GrayJyy/ethernaut/blob/main/test/01-HelloEthernaut-test.ts)
-2. [Fallback](
+2. [Fallback](https://github.com/GrayJyy/ethernaut/blob/main/test/02-Fallback-test.ts)
