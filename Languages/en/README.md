@@ -30,9 +30,9 @@ pnpm install
 ```shell
 PRIVATE_KEY=yourPrivateKey
 SEPOLIA_RPC_URL=yourRpcUrl
-# 可选
+# Optional
 ETHERSCAN_API_KEY=yourEtherscanApiKey
-# 可选
+# Optional
 COINMARKETCAP_API_KEY=youtCoinMarketcapApiKey
 ```
 
