@@ -44,7 +44,7 @@ COINMARKETCAP_API_KEY=youtCoinMarketcapApiKey
 pnpm hardhat test --network sepolia
 ```
 
-> How to run the certain test case?  --- `pnpm hardhat test --grep 'it关键词' --network sepolia`
+> How to run the certain test case?  --- `pnpm hardhat test --grep 'it's keyword' --network sepolia`
 
 
 

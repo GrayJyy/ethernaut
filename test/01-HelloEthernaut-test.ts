@@ -124,9 +124,6 @@ describe('HelloEthernaut', () => {
 
     const password = await challenge.password()
     console.log(`password = ${password}`)
-    // can we somehow get it from constructor arguments? seems to accept a _password
-    // const deploymentTx = await eoa.provider!.getTransaction(`0x047c8f63435250a79ede096557b94de95a4c5f282f0c041951b42a2d70bcd149`)
-    // console.log(`Tx data:`, deploymentTx.data, Buffer.from(deploymentTx.data, `hex`).toString(`utf8`))
 
     const tx = await challenge.authenticate(password)
     await tx.wait()
