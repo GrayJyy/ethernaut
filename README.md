@@ -4,8 +4,6 @@
 
 # Gray's ethernaut solution
 
----
-
 这是一个关于ethernaut的题解和思考的仓库或者说笔记，所有的解决方案都在test文件夹中。
 
 
@@ -53,5 +51,7 @@ pnpm hardhat test --network sepolia
 ### 目录
 ---
 
-1. HelloEthernaut [Code](https://github.com/GrayJyy/ethernaut/blob/main/test/01-HelloEthernaut-test.ts)
-2. Fallback [Code](https://github.com/GrayJyy/ethernaut/blob/main/test/02-Fallback-test.ts) [Note](https://github.com/GrayJyy/ethernaut/blob/main/Notes/cn/Fallback.md)
+1. HelloEthernaut   [Code](https://github.com/GrayJyy/ethernaut/blob/main/test/01-HelloEthernaut-test.ts)
+2. Fallback   [Code](https://github.com/GrayJyy/ethernaut/blob/main/test/02-Fallback-test.ts)     [Note](https://github.com/GrayJyy/ethernaut/blob/main/Notes/cn/Fallback.md)
+3. Fallout   [Code](https://github.com/GrayJyy/ethernaut/blob/main/test/03-Fallout-test.ts)     [Note](https://github.com/GrayJyy/ethernaut/blob/main/Notes/cn/Fallout.md)
+4. CoinFlip   [Code](https://github.com/GrayJyy/ethernaut/blob/main/test/04-CoinFlip-test.ts)     [Note](https://github.com/GrayJyy/ethernaut/blob/main/Notes/cn/CoinFlip.md)

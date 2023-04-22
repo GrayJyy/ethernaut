@@ -25,6 +25,9 @@ describe('Fallback', () => {
     tx = await challenge.withdraw()
     await tx.wait()
     const owner = await challenge.owner()
+    console.log(owner)
+    console.log(await eoa.getAddress())
+
     expect(owner).to.equal(await eoa.getAddress())
   })
   after(async () => {

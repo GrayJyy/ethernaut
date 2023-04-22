@@ -1,7 +1,7 @@
-import { LogDescription } from 'ethers/lib/utils';
-import { ethers } from 'hardhat';
+import { LogDescription } from 'ethers/lib/utils'
+import { ethers } from 'hardhat'
 
-export const ETHERNAUT_ADDRESS = `0xa3e7317E591D5A0F1c605be1b3aC4D2ae56104d6`;
+export const ETHERNAUT_ADDRESS = `0xa3e7317E591D5A0F1c605be1b3aC4D2ae56104d6`
 
 // manually copied from the website while inspect the web console's `ethernaut.abi`
 const ETHERNAUT_ABI = [
@@ -126,51 +126,52 @@ const ETHERNAUT_ABI = [
     type: 'function',
     signature: '0xf2fde38b',
   },
-];
+]
 
 export const submitLevel = async (address: string) => {
   try {
-    const ethernaut = await ethers.getContractAt(ETHERNAUT_ABI, ETHERNAUT_ADDRESS);
-    let tx = await ethernaut.submitLevelInstance(address);
-    await tx.wait();
+    const ethernaut = await ethers.getContractAt(ETHERNAUT_ABI, ETHERNAUT_ADDRESS)
+    let tx = await ethernaut.submitLevelInstance(address)
+    await tx.wait()
 
-    const txReceipt = await ethernaut.provider!.getTransactionReceipt(tx.hash);
-    if (txReceipt.logs.length === 0) return false;
+    const txReceipt = await ethernaut.provider!.getTransactionReceipt(tx.hash)
+    console.log('txReceipt logs length', txReceipt.logs.length)
+    if (txReceipt.logs.length === 0) return false
 
-    const event = ethernaut.interface.parseLog(txReceipt.logs[0]);
-    return event.name === `LevelCompletedLog`;
+    const event = ethernaut.interface.parseLog(txReceipt.logs[0])
+    return event.name === `LevelCompletedLog`
   } catch (error: any) {
-    console.error(`submitLevel: ${error.message}`);
-    return false;
+    console.error(`submitLevel: ${error.message}`)
+    return false
   }
-};
+}
 
 export const createChallenge = async (contractLevel: string, value: any = `0`) => {
   try {
-    const ethernaut = await ethers.getContractAt(ETHERNAUT_ABI, ETHERNAUT_ADDRESS);
+    const ethernaut = await ethers.getContractAt(ETHERNAUT_ABI, ETHERNAUT_ADDRESS)
     let tx = await ethernaut.createLevelInstance(contractLevel, {
       value,
-    });
-    await tx.wait();
+    })
+    await tx.wait()
 
-    const txReceipt = await ethernaut.provider!.getTransactionReceipt(tx.hash);
-    if (txReceipt.logs.length === 0) throw new Error(`No event found`);
+    const txReceipt = await ethernaut.provider!.getTransactionReceipt(tx.hash)
+    if (txReceipt.logs.length === 0) throw new Error(`No event found`)
     const events: LogDescription[] = txReceipt.logs
       .map(log => {
         try {
-          return ethernaut.interface.parseLog(log);
+          return ethernaut.interface.parseLog(log)
         } catch {
-          return undefined;
+          return undefined
         }
       })
-      .filter(Boolean) as LogDescription[];
+      .filter(Boolean) as LogDescription[]
 
-    const event = events.find(event => event.name === `LevelInstanceCreatedLog` && event.args.instance);
-    if (!event) throw new Error(`Invalid Event ${JSON.stringify(event)}`);
+    const event = events.find(event => event.name === `LevelInstanceCreatedLog` && event.args.instance)
+    if (!event) throw new Error(`Invalid Event ${JSON.stringify(event)}`)
 
-    return event.args.instance;
+    return event.args.instance
   } catch (error: any) {
-    console.error(`createChallenge: ${error.message}`);
-    throw new Error(`createChallenge failed: ${error.message}`);
+    console.error(`createChallenge: ${error.message}`)
+    throw new Error(`createChallenge failed: ${error.message}`)
   }
-};
+}

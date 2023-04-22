@@ -1,0 +1,3 @@
+# Fallout
+
+> Prior to `Solidity 0.4.22`, the constructor was not defined using the `constructor` keyword, but was defined as a function with the same name as the contract. This old syntax made it easy for developers to make mistakes when writing code. For example, in this question, the developer may have intended to write a `Fallout` function as the constructor, but instead wrote `Fal1out`, which left a vulnerability in the code.
