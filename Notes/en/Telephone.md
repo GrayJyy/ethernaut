@@ -3,12 +3,10 @@
 In `Solidity`, `tx.origin` traverses the entire call stack and returns the address of the account from which the initial call (or transaction) was sent. On the other hand, `msg.sender` represents the account or contract address that directly called the smart contract function. The difference between the two is that if multiple calls exist within the same transaction, `tx.origin` remains unchanged, while `msg.sender` changes.
 ---
 
-```mermaid
-graph LR
-    1[Account A(tx.origin)] --> 2[Contract B(msg.sender)] --> 3[Contract C(Target Contract)]
-```
+
 
 Graphical Representation：
+---
 ![different](https://img.learnblockchain.cn/attachments/2022/02/XyJFUGH5620dcb1e08bda.jpg 'different')
 ---
 Example：
