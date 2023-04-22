@@ -55,3 +55,4 @@ pnpm hardhat test --network sepolia
 2. Fallback   [Code](https://github.com/GrayJyy/ethernaut/blob/main/test/02-Fallback-test.ts)     [Note](https://github.com/GrayJyy/ethernaut/blob/main/Notes/cn/Fallback.md)
 3. Fallout   [Code](https://github.com/GrayJyy/ethernaut/blob/main/test/03-Fallout-test.ts)     [Note](https://github.com/GrayJyy/ethernaut/blob/main/Notes/cn/Fallout.md)
 4. CoinFlip   [Code](https://github.com/GrayJyy/ethernaut/blob/main/test/04-CoinFlip-test.ts)     [Note](https://github.com/GrayJyy/ethernaut/blob/main/Notes/cn/CoinFlip.md)
+5. Telephone   [Code](https://github.com/GrayJyy/ethernaut/blob/main/test/05-Telephone-test.ts)     [Note](https://github.com/GrayJyy/ethernaut/blob/main/Notes/cn/Telephone.md)
