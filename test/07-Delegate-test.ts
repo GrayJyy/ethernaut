@@ -15,6 +15,9 @@ describe('Delegate', () => {
     const iFace = new ethers.utils.Interface(abi);
     const data = iFace.encodeFunctionData('pwn', []);
     const eoa = (await ethers.getSigners())[0];
+    const owner1 = await challenge.owner();
+    console.log(owner1);
+
     const tx = await eoa.sendTransaction({
       from: eoa.address,
       to: challenge.address,
@@ -22,6 +25,8 @@ describe('Delegate', () => {
       gasLimit: BigNumber.from(`100000`),
     });
     await tx.wait();
+    const owner = await challenge.owner();
+    expect(owner).to.equal(eoa.address);
   });
   after(async () => {
     expect(await submitLevel(challenge.address), 'level not solved').to.be.true;
